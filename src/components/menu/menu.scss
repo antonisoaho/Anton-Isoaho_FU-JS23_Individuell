@@ -1,0 +1,58 @@
+@use '../../sass/index' as *;
+
+.menulist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: $footerHeight;
+
+    &__header {
+        @include headerFontStyling(42px);
+    }
+
+    &>.item {
+        display:flex;
+        position: relative;
+        align-items: center;
+        width: 19.4375rem;
+        height: 4rem;
+        justify-content:space-between;
+
+        &>.item__addbutton {
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.12);
+            border: none;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            background-color: $textBaseColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        &>.item__info {
+            &>.info--title {
+                @include headerFontStyling(23px);
+                display: flex;
+                justify-content: space-between;
+                width: 16.4375rem;
+
+                &>* {
+                    text-wrap: nowrap;
+                }
+                &>.info--dots {
+                    color: rgba(0,0,0, 0.4);
+                    overflow: hidden;
+                }
+            }
+
+            &>.info--desc {
+                @include paragraphFontStyling(12px)
+            }
+        }
+
+       
+    }
+}

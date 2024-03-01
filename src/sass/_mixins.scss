@@ -1,0 +1,23 @@
+@use './variables.scss' as *;
+
+@mixin paragraphFontStyling($weight: $paragraphBaseWeight, $size: $paragraphBaseSize, $color: $textBaseColor) {
+    font-family: $paragraphFont;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+};
+
+@mixin headerFontStyling($size: $headerBaseSize, $color: $textBaseColor) {
+    font-family: $headerFont;
+    font-size: $size;
+    font-weight: $headerBaseWeight;
+    color: $color;
+};
+
+@mixin headerPadding {
+    padding-top: $headerHeight;
+};
+
+@mixin footerPadding {
+    padding-bottom: $footerHeight;
+};

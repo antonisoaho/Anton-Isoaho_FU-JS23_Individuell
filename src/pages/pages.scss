@@ -1,0 +1,23 @@
+@use '../sass/index' as *;
+
+.landingpage {
+    background: url('../../assets/landingpage-background.png');
+    background-size: 375px 655px;
+    height: 655px;
+    width: 375px;
+}
+
+.header {
+
+    &__about,
+    &__menu {
+        @include headerFontStyling(42px);
+    }
+    
+}
+
+.menu__page {
+    background: $pinkBg;
+    @include headerPadding;
+    @include footerPadding;
+}
