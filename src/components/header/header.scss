@@ -1,7 +1,7 @@
-@use '../../../sass/index' as *;
+@use '../../sass/index' as *;
 
 .header {
-    background-image: url('../../../assets/header-background.png');
+    background-image: url('../../assets/header-background.png');
     background-size: $maxAppWidth $headerHeight;
     width: $maxAppWidth;
     height: $headerHeight;
