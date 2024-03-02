@@ -2,19 +2,19 @@ import './circularButton.scss';
 
 interface CircularButtonProps {
   children: JSX.Element;
-  handleClick: () => void;
+  onClick: () => void;
   color: string;
   size: string;
 }
 
 const CircularButton: React.FC<CircularButtonProps> = ({
   children,
-  handleClick,
+  onClick,
   color,
   size,
 }) => {
   return (
-    <button className={`circularButton ${color} ${size}`} onClick={handleClick}>
+    <button className={`circularButton ${color} ${size}`} onClick={onClick}>
       {children}
     </button>
   );

@@ -49,4 +49,21 @@
       cursor: pointer;
     }
   }
-  
+.cartbutton {
+  z-index: 10;
+  .cartcounter {
+    position:absolute;
+    left: 2.375rem;
+    top: -0.25rem;
+    
+    width: 1.375rem;
+    height: 1.375rem;
+
+    @include headerFontStyling(0.75rem);
+    @include flex;
+    @include circular(white, rgba(229, 103, 78, 1));
+    &.hidden {
+      display: none;
+    }
+  }
+}

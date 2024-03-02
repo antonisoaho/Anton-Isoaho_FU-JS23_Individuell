@@ -11,6 +11,9 @@ import About from './pages/About';
 import Profile from './pages/Profile';
 import Status from './pages/Status';
 import './app.scss';
+import Cart from './components/cart/Cart';
+import Nav from './components/nav/Nav';
+import { useCartStore } from './store/CartStore';
 
 interface RouteInterface {
   element: JSX.Element;
@@ -50,10 +53,15 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const { cartOpen } = useCartStore();
+
   return (
-    <>
+    <div>
       <RouterProvider router={router} />
-    </>
+      {cartOpen ? <Cart /> : ''}
+
+      <Nav />
+    </div>
   );
 }
 
