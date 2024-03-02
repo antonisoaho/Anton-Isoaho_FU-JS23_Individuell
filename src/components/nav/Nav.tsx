@@ -1,4 +1,7 @@
+import CircularButton from '../buttons/circular/CircularButton';
+import './nav.scss';
+
 const Nav = () => {
-  return <div></div>;
+  return <></>;
 };
 export default Nav;

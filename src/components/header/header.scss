@@ -5,5 +5,48 @@
     background-size: $maxAppWidth $headerHeight;
     width: $maxAppWidth;
     height: $headerHeight;
+    padding: 1rem;
     position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+
+
 }
+
+.hamburger{
+    @include btn(3rem, 3rem);
+    @include flex;
+    
+    position:relative;
+    .icon {
+      @include icon(2px, 26px);
+
+      &:before{
+        @include icon-before(2px, 26px, -10px);
+      }
+      
+      &:after{
+        @include icon-after(2px, 26px, 10px);
+      }
+    }
+    
+    &.open {
+      .icon {
+        transition-duration: 0.5s;
+        background: transparent;
+        
+        &:before{
+          transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+        }
+  
+        &:after{
+          transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+        }
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  

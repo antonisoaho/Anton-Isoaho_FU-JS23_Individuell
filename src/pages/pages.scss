@@ -1,10 +1,14 @@
 @use '../sass/index' as *;
 
 .landingpage {
-    background: url('../../assets/landingpage-background.png');
+    background: url('../assets/landingpage-background.png');
     background-size: 375px 655px;
     height: 655px;
     width: 375px;
+    background-color: $landingBg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header {

@@ -4,13 +4,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
     padding-bottom: $footerHeight;
 
     &__header {
         @include headerFontStyling(42px);
     }
 
-    &>.item {
+    .item {
         display:flex;
         position: relative;
         align-items: center;
@@ -18,37 +19,31 @@
         height: 4rem;
         justify-content:space-between;
 
-        &>.item__addbutton {
-            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.12);
-            border: none;
-            border-radius: 50%;
-            width: 2rem;
-            height: 2rem;
-            background-color: $textBaseColor;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        &>.item__info {
-            &>.info--title {
-                @include headerFontStyling(23px);
+        .item__info {
+            .info--title {
+                @include headerFontStyling(19px);
                 display: flex;
                 justify-content: space-between;
                 width: 16.4375rem;
 
-                &>* {
+                * {
                     text-wrap: nowrap;
                 }
-                &>.info--dots {
-                    color: rgba(0,0,0, 0.4);
-                    overflow: hidden;
-                }
-            }
 
-            &>.info--desc {
+                .dots {
+                    overflow:hidden;
+                    @include headerFontStyling(10px, rgba(0, 0, 0, 0.4));
+                    align-self: last baseline;
+                }
+
+                .info--price {
+                    padding-left: .75rem;
+                }
+
+            }
+            
+
+            .info--desc {
                 @include paragraphFontStyling(12px)
             }
         }
