@@ -1,0 +1,52 @@
+@use '../../sass/index' as *;
+
+.orderstatus {
+
+    &__container {
+        padding: 3.875rem 3rem;
+        @include flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    &--header {
+        @include headerFontStyling(2.25rem, white);
+        text-align: center;
+        width: 17.4375rem;
+        height: 7.8125rem;
+        line-height: 43.2px;
+        margin-bottom: -2rem;
+        padding-top: 2rem;
+    }
+
+    &__row {
+        @include flex;
+        height: 2.3125rem;
+        width: 17.4375rem;
+        gap: 0.5rem;
+
+        .orderstatus--ordernumber {
+            @include paragraphFontStyling(400, 1rem, rgba(255, 255,255, 0.7));
+            line-height: 19.2px;
+            
+            &.bold {
+                font-weight: 700;
+            }
+        }
+
+        .orderstatus--eta {
+            @include paragraphFontStyling(400, 22px, white);
+            
+            &.bold {
+                font-weight: 700;
+            }
+        }
+
+        .orderstatus--button {
+            @include btn(11.5rem, 3.5rem);
+            @include headerFontStyling(1.5rem);
+            border-radius: 3.5rem;
+            margin-top: 2rem;
+        }
+    }
+}

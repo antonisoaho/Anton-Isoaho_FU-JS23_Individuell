@@ -40,6 +40,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route index element={<Landing />} />
+      <Route path="/status" element={<Status />} />
       <Route element={<Root />}>
         {ApplicationRoutes.map((route, index) => (
           <Route {...route} key={index} />

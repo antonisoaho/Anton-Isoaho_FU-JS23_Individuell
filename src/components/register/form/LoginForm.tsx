@@ -4,7 +4,7 @@ import { loginUser } from '../../../api/user/userCalls';
 import useUserStore from '../../../store/UserStore';
 
 const LoginForm = () => {
-  const { setUsername, setToken, setEmail, setValidToken } = useUserStore();
+  const { setUser, setValidToken } = useUserStore();
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -31,9 +31,7 @@ const LoginForm = () => {
 
     if (response.success) {
       const token = response.token;
-      setUsername(name);
-      setToken(token);
-      setEmail(email);
+      setUser({ username: name, token, email });
       setValidToken(true);
     } else {
       setState((prevState) => ({

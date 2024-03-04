@@ -19,7 +19,7 @@ interface State {
 }
 
 const RegisterForm = () => {
-  const { setUsername, setToken, setEmail, setValidToken } = useUserStore();
+  const { setUser, setValidToken } = useUserStore();
   const [state, setState] = useState<State>({
     name: '',
     email: '',
@@ -81,9 +81,7 @@ const RegisterForm = () => {
 
         if (loginResponse.success) {
           const { token } = loginResponse;
-          setUsername(name);
-          setToken(token);
-          setEmail(email);
+          setUser({ username: name, token, email });
           setValidToken(true);
         }
       }

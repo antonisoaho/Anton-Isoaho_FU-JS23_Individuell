@@ -35,7 +35,7 @@ export const loginUser = async (request: UserModel) => {
 
     return data;
   } catch (error) {
-    return Promise.reject(error);
+    return error;
   }
 };
 
@@ -52,7 +52,7 @@ export const getOrderHistory = async (token: string) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    return Promise.reject(error);
+    return error;
   }
 };
 

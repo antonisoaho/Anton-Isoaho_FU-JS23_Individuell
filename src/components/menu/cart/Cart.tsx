@@ -5,6 +5,7 @@ import { useBeanStore } from '../../../store/BeanStore';
 import { postNewOrder } from '../../../api/beans/beanCalls';
 import useUserStore from '../../../store/UserStore';
 import { useNavigate } from 'react-router-dom';
+import CartItem from './CartItem';
 
 const Cart = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -50,10 +51,7 @@ const Cart = () => {
           <div className="cart__details">
             <ul className="cart__list">
               {Object.values(order).map((bean, index) => (
-                <div key={index}>
-                  <span>{bean.name}</span>
-                  <span>{bean.quantity}</span>
-                </div>
+                <CartItem {...bean} key={index} />
               ))}
             </ul>
             <div key={'total'}>{`${totalPrice} kr`}</div>
