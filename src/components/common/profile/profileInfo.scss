@@ -1,0 +1,57 @@
+@use '../../../sass/index' as *;
+
+.profile{
+    &info {
+        @include flex;
+        flex-direction: column;
+
+        & > * {
+            text-align: center;
+        }
+
+        &.sm {
+            width: 19.4375rem;
+            height: 7.875rem;
+            .profile__img {
+                width: 4.625rem;
+                height: 4.625rem;
+            }
+            .profile__name {
+                @include headerFontStyling(22px);
+                &.secondary {
+                    @include headerFontStyling(22px, white);
+                }
+            }
+            .profile__info {
+                @include paragraphFontStyling(400, 12px);
+                &.secondary {
+                    @include paragraphFontStyling(400, 12px, rgba(255, 255, 255, 0.8));
+                }
+            }
+        }
+
+        &.lg {
+            width: 16.0625rem;
+            height: 10rem;
+
+            .profile__img {
+                width: 5.875rem;
+                height: 5.875rem;
+                margin-bottom: 0.9375rem;
+            }
+
+            .profile__name {
+                @include headerFontStyling(24px);
+                &.secondary {
+                    @include headerFontStyling(24px, white);
+                }
+            }
+            .profile__info {
+                @include paragraphFontStyling(400, 14px);
+                &.secondary {
+                    @include paragraphFontStyling(400, 14px, rgba(255, 255, 255, 0.8));
+                }
+            }
+        }
+    }
+} 

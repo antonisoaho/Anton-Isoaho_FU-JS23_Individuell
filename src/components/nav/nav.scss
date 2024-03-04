@@ -1,49 +1,37 @@
-.menu-button-container {
-    display: none;
-    height: 100%;
-    width: 30px;
+@use '../../sass/index' as *;
+
+.nav__overlay {
+  @include full-overlay();
+  @include flex(center, flex-start);
+  // padding-top: 6rem;
+  transition: .4s ease-out;
+  
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.true {
+  opacity: 1;
+  z-index: 2;
+  transform: translateX(0);
+}
+
+.navigation {
+  @include flex;
+  padding-top: 14.6875rem;
+  gap: 1rem;
+  flex-direction: column;
+
+  h2 {
+    @include headerFontStyling(2rem, white);
+    text-align: center;
+    height: 45px;
+    width: 311px;
+    transition: .1s;
     cursor: pointer;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    &:hover {
+      text-shadow: 1px 1px 5px rgba(255,255,255,0.8);
+    }
   }
-  
-  #menu-toggle {
-    display: none;
-  }
-  
-  .menu-button,
-  .menu-button::before,
-  .menu-button::after {
-    display: block;
-    background-color: #fff;
-    position: absolute;
-    height: 4px;
-    width: 30px;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    border-radius: 2px;
-  }
-  
-  .menu-button::before {
-    content: '';
-    margin-top: -8px;
-  }
-  
-  .menu-button::after {
-    content: '';
-    margin-top: 8px;
-  }
-  
-  #menu-toggle:checked + .menu-button-container .menu-button::before {
-    margin-top: 0px;
-    transform: rotate(405deg);
-  }
-  
-  #menu-toggle:checked + .menu-button-container .menu-button {
-    background: rgba(255, 255, 255, 0);
-  }
-  
-  #menu-toggle:checked + .menu-button-container .menu-button::after {
-    margin-top: 0px;
-    transform: rotate(-405deg);
-  }
+}

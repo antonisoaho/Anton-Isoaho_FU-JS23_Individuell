@@ -1,0 +1,41 @@
+@use '../../sass/index' as *;
+
+.register__screen {
+    height: 40.3125rem;
+    width: 21.3125rem;
+    margin-top: -1.95rem;
+    z-index: 1;
+    padding: 1rem;
+    background-color: $pinkBg;
+    border-radius: 2px; 
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.6);
+    @include flex(flex-start);
+    flex-direction: column;
+
+    .register__header {
+        margin-top: 1rem;
+        @include flex;
+        flex-direction: column;
+
+
+        &--title {
+            @include headerFontStyling(2rem);
+            text-align: center;
+            line-height: 38.4px;
+            height: 6.0625rem;
+        }
+
+        &--info {
+            @include paragraphFontStyling(400, 1rem);
+            text-align: center;
+            line-height: 24px;
+            height: 3.5rem;
+            margin-top: -0.25rem;
+        }
+    }
+
+    .already-member {
+        @include paragraphFontStyling(400, 12px);
+        cursor: pointer;
+    }
+}

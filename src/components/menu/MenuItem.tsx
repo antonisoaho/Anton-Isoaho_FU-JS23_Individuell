@@ -1,22 +1,17 @@
 import { BeanModel } from '../../api/beans/models/BeanModel';
 import CircularButton from '../buttons/circular/CircularButton';
-import Dots from '../dots/Dots';
 import AddIcon from '../icons/AddIcon';
 import './menu.scss';
 import { useBeanStore } from '../../store/BeanStore';
+import Dots from '../common/dots/Dots';
 
 type MenuItemProps = BeanModel;
 
-const MenuItem: React.FC<MenuItemProps> = ({
-  id,
-  title: name,
-  desc,
-  price,
-}) => {
+const MenuItem: React.FC<MenuItemProps> = ({ title: name, desc, price }) => {
   const { addToCart } = useBeanStore();
 
   return (
-    <div key={id} className="item">
+    <div className="item">
       <CircularButton
         onClick={() => addToCart({ name, price })}
         color="base"

@@ -1,13 +1,18 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../components/header/Header';
+import Nav from '../components/nav/Nav';
+import './pages.scss';
 
 const Root = () => {
   return (
     <>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
+      <div className="rootpage">
+        <Header />
+        <Nav />
+        <main>
+          <Outlet />
+        </main>
+      </div>
     </>
   );
 };

@@ -1,0 +1,63 @@
+@use '../../../sass/index' as *;
+
+
+.fog{
+    opacity:.25;
+    z-index: 0;
+
+&.true {
+    @include full-overlay(rgba(0, 0, 0, 0.25));
+    display:flex;
+    opacity: .25;
+    position:absolute;
+    }
+}
+
+.shoppingcart {
+    display:none;
+
+    &.true {
+    @include flex;
+    z-index: $zIndexOverlay;
+    width: 21.3125rem;
+    min-height: 5rem;
+    max-height: 80%;
+    position: absolute;
+    
+    top: 4.5rem;
+    right: 17px;
+    background-color: white;
+    border-radius: 3px;
+    
+        &::after {
+            @include pseudocontent(1.375rem, 1.375rem, white);
+            transform: rotate(45deg);
+            right: 1.075rem;
+            top: -0.4rem;
+            border-radius: 3px;
+        }
+    
+
+        .cart-container {
+            @include flex;
+            flex-direction: column;
+        
+            gap: 2rem;
+
+            .cart__header {
+                @include headerFontStyling(2rem);
+                width: 19.4375rem;
+                text-align: center;
+                margin-top: 2rem;
+            }
+
+            .cart__details {
+                @include flex(space-between);
+                flex-direction: column;
+            
+
+            }
+        }
+    }
+}
+

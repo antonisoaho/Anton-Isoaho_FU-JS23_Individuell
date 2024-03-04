@@ -1,7 +1,10 @@
 
-// Background colors
+// Colors
 $landingBg: rgba(56, 132, 109, 1);
 $pinkBg: rgba(243, 228, 225, 1);
+$profileBg: rgba(47, 41, 38, 1);
+$statusBg: rgba(229, 103, 78, 1);
+$darkGreen: rgba(14, 146, 125, 1);
 
 
 // Fontstyles
@@ -23,3 +26,11 @@ $footerHeight: 4.5625rem;
 
 $maxAppWidth: 23.4375rem;
 $maxAppHeight: 59.375rem;
+
+// Overlays
+    // Button
+    $zIndexBtnActive: 10;
+    $zIndexBtnInactive: 0;
+
+    // Overlay
+    $zIndexOverlay: 100;

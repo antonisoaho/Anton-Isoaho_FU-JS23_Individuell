@@ -28,14 +28,24 @@
     align-items: $align;
 }
 
+@mixin full-overlay($bg: $textBaseColor) {
+    position:absolute;
+    width: $maxAppWidth;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $bg;
+}
+
 @mixin btn($width, $height) {
     position: relative;
     width: $width;
     height: $height;
-    transition-duration: 0.5s;
+    border: none;
+    cursor: pointer;
 }
 
-@mixin circular($color: $white, $bgColor: $textBaseColor) {
+@mixin circular($color: white, $bgColor: $textBaseColor) {
     border-radius: 50%;
     color: $color;
     background-color: $bgColor;

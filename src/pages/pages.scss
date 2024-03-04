@@ -1,27 +1,80 @@
 @use '../sass/index' as *;
 
+
+.rootpage {
+    position:relative;
+}
+
+.page{
+    @include headerPadding;
+    @include footerPadding;
+}
+
+
 .landingpage {
     background: url('../assets/landingpage-background.png');
     background-size: 375px 655px;
     height: 655px;
     width: 375px;
     background-color: $landingBg;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex;
 }
 
-.header {
-
-    &__about,
-    &__menu {
-        @include headerFontStyling(42px);
-    }
-    
+.header__menu {
+    @include headerFontStyling(42px);
 }
 
 .menu__page {
     background: $pinkBg;
-    @include headerPadding;
-    @include footerPadding;
+
+    .btn-container {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: $zIndexBtnInactive;
+        &.true {
+          z-index: $zIndexBtnActive;
+        }
+      
+      }
+}
+
+.profilepage {
+    background-color: $profileBg;
+    @include flex;
+    flex-direction: column;
+    min-height: 41.6875rem;
+}
+
+.aboutpage {
+    background-color: $pinkBg;
+    @include flex;
+    flex-direction: column;
+
+    .header__about {
+        @include headerFontStyling(42px);
+        padding-left: 2rem;
+        text-align: left;
+        width: 100%;
+    }
+
+        .aboutpage__textsection {
+            padding: 2rem;
+            margin-bottom: 1rem;
+
+
+        .about_paragraph {
+            @include paragraphFontStyling(400, 12px);
+            margin-bottom: 1rem;
+            line-height: 1.375rem;
+
+            &.important {
+                @include paragraphFontStyling(600, 14px);
+            }
+        }
+    }
+}
+
+.statuspage {
+    background-color: $statusBg;
 }

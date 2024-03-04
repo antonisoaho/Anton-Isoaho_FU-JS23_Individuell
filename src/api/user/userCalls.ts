@@ -4,7 +4,7 @@ import { UserModel } from './models/UserModel';
 export const registerUser = async (request: UserModel) => {
   try {
     const requestBody = JSON.stringify(request);
-    console.log('request', request);
+    console.log('request', requestBody);
     const response = await fetch(`${url}/user/signup`, {
       headers: {
         'Content-Type': 'application/json',
@@ -14,9 +14,9 @@ export const registerUser = async (request: UserModel) => {
     });
 
     const data = await response.json();
-    console.log('data', data);
+    return data;
   } catch (error) {
-    console.log('error', error);
+    return Promise.reject(error);
   }
 };
 
@@ -32,9 +32,10 @@ export const loginUser = async (request: UserModel) => {
     });
 
     const data = await response.json();
-    console.log('data', data);
+
+    return data;
   } catch (error) {
-    console.log('error', error);
+    return Promise.reject(error);
   }
 };
 
@@ -49,13 +50,13 @@ export const getOrderHistory = async (token: string) => {
     });
 
     const data = await response.json();
-    console.log('data', data);
+    return data;
   } catch (error) {
-    console.log('error', error);
+    return Promise.reject(error);
   }
 };
 
-export const getTokenStatus = async (token: string) => {
+export const getTokenStatus = async (token: string): Promise<boolean> => {
   try {
     const response = await fetch(`${url}/user/status`, {
       headers: {
@@ -66,8 +67,12 @@ export const getTokenStatus = async (token: string) => {
     });
 
     const data = await response.json();
-    console.log('data', data);
+    if (data.error) {
+      return false;
+    } else {
+      return true;
+    }
   } catch (error) {
-    console.log('error', error);
+    return false;
   }
 };

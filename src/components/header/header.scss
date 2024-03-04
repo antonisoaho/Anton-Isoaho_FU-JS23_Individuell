@@ -7,63 +7,8 @@
     height: $headerHeight;
     padding: 1rem;
     position: absolute;
-
     display: flex;
     justify-content: space-between;
-
-
 }
 
-.hamburger{
-    @include btn(3rem, 3rem);
-    @include flex;
-    
-    position:relative;
-    .icon {
-      @include icon(2px, 26px);
 
-      &:before{
-        @include icon-before(2px, 26px, -10px);
-      }
-      
-      &:after{
-        @include icon-after(2px, 26px, 10px);
-      }
-    }
-    
-    &.open {
-      .icon {
-        transition-duration: 0.5s;
-        background: transparent;
-        
-        &:before{
-          transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
-        }
-  
-        &:after{
-          transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
-        }
-      }
-    }
-    &:hover {
-      cursor: pointer;
-    }
-  }
-.cartbutton {
-  z-index: 10;
-  .cartcounter {
-    position:absolute;
-    left: 2.375rem;
-    top: -0.25rem;
-    
-    width: 1.375rem;
-    height: 1.375rem;
-
-    @include headerFontStyling(0.75rem);
-    @include flex;
-    @include circular(white, rgba(229, 103, 78, 1));
-    &.hidden {
-      display: none;
-    }
-  }
-}

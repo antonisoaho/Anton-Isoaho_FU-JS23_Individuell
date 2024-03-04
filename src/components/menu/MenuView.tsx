@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getMenuList } from '../../api/beans/beanCalls';
-import { BeanModel } from '../../api/beans/models/BeanModel';
 import MenuItem from './MenuItem';
 
+interface MenuItemProps {
+  id: string;
+  title: string;
+  desc: string;
+  price: number;
+}
+
 const MenuView = () => {
-  const [menuItems, setMenuItems] = useState<Array<BeanModel>>([]);
+  const [menuItems, setMenuItems] = useState<Array<MenuItemProps>>([]);
 
   useEffect(() => {
     const fetchMenuItems = async () => {

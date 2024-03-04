@@ -1,8 +1,7 @@
+import { ButtonHTMLAttributes } from 'react';
 import './circularButton.scss';
 
-interface CircularButtonProps {
-  children: JSX.Element;
-  onClick: () => void;
+interface CircularButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: string;
   size: string;
 }

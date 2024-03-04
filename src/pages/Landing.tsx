@@ -1,11 +1,11 @@
 import Welcome from '../components/welcome/Welcome';
 import './pages.scss';
 
-const Home = () => {
+const Landing = () => {
   return (
     <div className="landingpage">
       <Welcome />
     </div>
   );
 };
-export default Home;
+export default Landing;
