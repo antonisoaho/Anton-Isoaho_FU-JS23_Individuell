@@ -4,6 +4,7 @@ import { useBeanStore } from '../../store/BeanStore';
 import OrderStatus from './order/OrderStatus';
 import NoOrderStatus from './order/NoOrderStatus';
 import Spinner from '../icons/Spinner';
+import useUserStore from '../../store/UserStore';
 
 interface OrderModel {
   eta: number;
@@ -12,19 +13,27 @@ interface OrderModel {
 
 const StatusView = () => {
   const { lastOrder } = useBeanStore();
+  const {
+    user: { token },
+  } = useUserStore();
   const [order, setOrder] = useState<OrderModel>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const getCurrOrder = async () => {
-      const response = await getOrderEta(lastOrder);
-      if (response.eta) setOrder({ eta: response.eta, orderNr: lastOrder });
+      const userToken: string | undefined = token ? token : undefined;
+
+      const response = await getOrderEta(lastOrder, userToken);
+      if (response.eta) {
+        setOrder({ eta: response.eta, orderNr: lastOrder });
+        setIsLoading(false);
+      }
     };
 
     if (lastOrder) {
       getCurrOrder();
     } else {
-      setTimeout(() => setIsLoading(false), 500);
+      setIsLoading(false);
     }
   }, []);
 

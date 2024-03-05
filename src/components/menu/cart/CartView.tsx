@@ -65,7 +65,10 @@ const CartView = () => {
               </div>
             </div>
           </div>
-          <button onClick={handleOrder} className="cart__details--button">
+          <button
+            onClick={handleOrder}
+            disabled={!Object.values(order).length}
+            className="cart__details--button">
             Take my money!
           </button>
         </div>
