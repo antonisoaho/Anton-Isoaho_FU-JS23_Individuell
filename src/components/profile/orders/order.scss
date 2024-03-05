@@ -1,0 +1,61 @@
+@use '../../../sass/index' as *;
+
+.order__list {
+    @include flex;
+    flex-direction: column;
+    padding: 1.875rem;
+    .order__header {
+        @include headerFontStyling(22px, white);
+        text-align: left;
+        width: 100%;
+        margin-top: 4rem;
+        margin-bottom: 0.9375rem;
+    }
+
+    .order__list--total {
+        @include flex(space-between);
+        width: 100%;
+        height: 1.75rem;
+        position:relative;
+
+        &::before {
+            @include pseudocontent(0, 19.6875rem, transparent);
+            border: solid 1px rgba(255, 255, 255, 0.6);
+            top: 0;
+        }
+
+        .total--spent {
+            @include paragraphFontStyling(700, 0.875rem, rgba(255, 255, 255, 0.8));
+        }
+    }
+
+    .order__item {
+        width: 19.6875rem;
+        height: 2.75rem;
+        position: relative;
+
+        &::after {
+            @include pseudocontent(0, 19.6875rem, transparent);   
+            border: solid 1px rgba(255, 255, 255, 0.08);
+            bottom: 0;
+        }
+
+        .order__item--row {
+            height: 1.25rem;
+            @include flex(space-between);
+
+            .order_number {
+                @include paragraphFontStyling(700, 0.75rem, rgba(255,255,255,0.7));
+                line-height: 16.8px;
+            }
+            .order_date {
+                @include paragraphFontStyling(400, 0.75rem, rgba(255,255,255,0.7));
+                line-height: 16.8px;
+            }
+            .order_sum {
+                @include paragraphFontStyling(400, 0.75rem, rgba(255,255,255,0.5));
+                padding-bottom: 0.25rem;
+            }
+        }
+    }
+}

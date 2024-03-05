@@ -1,10 +1,10 @@
-import Welcome from '../components/welcome/Welcome';
+import LandingView from '../components/landing/LandingView';
 import './pages.scss';
 
 const Landing = () => {
   return (
     <div className="landingpage">
-      <Welcome />
+      <LandingView />
     </div>
   );
 };

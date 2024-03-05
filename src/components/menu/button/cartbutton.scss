@@ -5,7 +5,7 @@
 
     .cartbutton {
         cursor: pointer;
-        @include circular();
+        @include circular;
         @include btn(3.75rem, 3.75rem);
 
         .cartcounter {

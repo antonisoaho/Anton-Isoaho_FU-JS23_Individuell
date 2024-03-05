@@ -25,6 +25,11 @@
     animation: wobble 2s infinite alternate, moveUpDown 4s infinite alternate;
 }
 
+.dronenocoffee {
+    width: 13.5rem;
+    height: 5rem;
+}
+
 @keyframes wobble {
     0% { transform: translateY(0); }
     25% { transform: translateY(-5px) rotate(2deg); }
@@ -36,4 +41,54 @@
   @keyframes moveUpDown {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
+  }
+
+  .chevronup {
+    width: 0.5rem;
+    height: 4.7px;
+  }
+  .chevrondown {
+    width: 0.5rem;
+    height: 4.7px;
+  }
+
+  .coffeemug {
+    width: 2.5rem;
+    height: 3.9375rem;
+  }
+
+  .spinner {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  
+    .spinner-arm {
+      position: absolute;
+      width: 3rem;
+      height: 3rem;
+      border-top: 6px solid white;
+      box-shadow: 0 0 0 1px #333, 0 0 0 3px white, 0 0 0 4px #333;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+    }
+  
+    .spinner-arm:nth-child(2) {
+
+      border-top: 4px solid grey;
+      animation: spin 1.5s reverse infinite;
+    }
+    .spinner-arm:nth-child(3) {
+
+      border-top: 2px solid rgba(229, 103, 78, 1);
+      animation: spin 3s ease-in-out infinite;
+    }
+
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }

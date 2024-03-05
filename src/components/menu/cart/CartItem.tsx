@@ -1,10 +1,8 @@
-import { BeanModel } from '../../../api/beans/models/BeanModel';
 import { useBeanStore } from '../../../store/BeanStore';
-import CircularButton from '../../buttons/circular/CircularButton';
 import Dots from '../../common/dots/Dots';
-import AddIcon from '../../icons/AddIcon';
 import ChevronDown from '../../icons/ChevronDown';
 import ChevronUp from '../../icons/ChevronUp';
+import './cart.scss';
 
 interface MenuItemProps {
   name: string;
@@ -16,21 +14,27 @@ const MenuItem: React.FC<MenuItemProps> = ({ name, price, quantity }) => {
   const { addToCart, removeFromCart } = useBeanStore();
 
   return (
-    <div className="cartitem">
-      <div className="cartitem__info">
-        <div className="cartitem__info--row name">
-          <h2>{name}</h2>
-          <Dots />
-        </div>
-        <div className="cartitem__info--row price">
-          <p>{name}</p>
-        </div>
-        <section className="cartitem__info--row adjust">
-          <ChevronUp />
-          {quantity}
-          <ChevronDown />
-        </section>
+    <div className="cartitem__info">
+      <div className="cartitem__info--row heading">
+        <h2 className="cartitem__info--row name">{name}</h2>
+        <Dots />
       </div>
+      <div className="cartitem__info--row subrow">
+        <p className="cartitem__info--row price">{price * quantity + ' kr'}</p>
+      </div>
+      <section className="cartitem__info--side adjust">
+        <button
+          className="cartitem__info--side chevronbutton"
+          onClick={() => addToCart({ name, price })}>
+          <ChevronUp />
+        </button>
+        {quantity}
+        <button
+          className="cartitem__info--side chevronbutton"
+          onClick={() => removeFromCart(name)}>
+          <ChevronDown />
+        </button>
+      </section>
     </div>
   );
 };

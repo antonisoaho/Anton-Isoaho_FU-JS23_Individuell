@@ -1,5 +1,5 @@
-import Cart from '../components/menu/cart/Cart';
-import Footer from '../components/footer/Footer';
+import Cart from '../components/menu/cart/CartView';
+import Footer from '../components/common/footer/Footer';
 import MenuView from '../components/menu/MenuView';
 import './pages.scss';
 

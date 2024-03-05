@@ -27,10 +27,6 @@ const ApplicationRoutes: Array<RouteInterface> = [
     element: <About />,
   },
   {
-    path: '/status',
-    element: <Status />,
-  },
-  {
     path: '/profile',
     element: <Profile />,
   },

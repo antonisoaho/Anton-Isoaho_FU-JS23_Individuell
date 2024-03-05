@@ -1,5 +1,4 @@
 import { BeanModel } from '../../api/beans/models/BeanModel';
-import CircularButton from '../buttons/circular/CircularButton';
 import AddIcon from '../icons/AddIcon';
 import './menu.scss';
 import { useBeanStore } from '../../store/BeanStore';
@@ -12,12 +11,12 @@ const MenuItem: React.FC<MenuItemProps> = ({ title: name, desc, price }) => {
 
   return (
     <div className="item">
-      <CircularButton
+      <button
         onClick={() => addToCart({ name, price })}
         color="base"
-        size="sm">
+        className="item--addbutton">
         <AddIcon />
-      </CircularButton>
+      </button>
       <div className="item__info">
         <h2 className="info--title">
           <span>{name}</span>

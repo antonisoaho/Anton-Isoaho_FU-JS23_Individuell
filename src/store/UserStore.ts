@@ -32,7 +32,20 @@ const useUserStore = create<UserStore>()(
             ...user,
           },
         })),
-      setValidToken: (validToken) => set({ validToken }),
+      setValidToken: (validToken) =>
+        set((state) => {
+          if (validToken) {
+            return { ...state, validToken };
+          } else {
+            const updatedUser = { username: '', email: '', token: null };
+
+            return {
+              ...state,
+              user: updatedUser,
+              validToken: validToken,
+            };
+          }
+        }),
       clearUser: () =>
         set(() => ({
           user: {
