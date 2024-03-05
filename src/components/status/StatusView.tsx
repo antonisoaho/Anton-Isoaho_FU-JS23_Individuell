@@ -26,8 +26,8 @@ const StatusView = () => {
       const response = await getOrderEta(lastOrder, userToken);
       if (response.eta) {
         setOrder({ eta: response.eta, orderNr: lastOrder });
-        setIsLoading(false);
       }
+      setIsLoading(false);
     };
 
     if (lastOrder) {
