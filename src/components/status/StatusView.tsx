@@ -26,6 +26,11 @@ const StatusView = () => {
       const response = await getOrderEta(lastOrder, userToken);
       if (response.eta) {
         setOrder({ eta: response.eta, orderNr: lastOrder });
+      } else {
+        const responseWithoutToken = await getOrderEta(lastOrder);
+        if (responseWithoutToken.eta) {
+          setOrder({ eta: responseWithoutToken.eta, orderNr: lastOrder });
+        }
       }
       setIsLoading(false);
     };

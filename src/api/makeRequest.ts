@@ -32,17 +32,12 @@ const makeRequest = async <T>(
       headers,
       body,
     });
-    await fetchDelay(1000);
 
     const data = await response.json();
     return data;
   } catch (error) {
     return Promise.reject(error);
   }
-};
-
-const fetchDelay = async (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
 export default makeRequest;
