@@ -35,43 +35,43 @@ export const useBeanStore = create<BeanStore>()(
       lastOrder: '',
       addToCart: (bean) =>
         set((state) => {
-          const updatedOrder = { ...state.order };
-          const updatedPrice = state.totalPrice + bean.price;
-          const updatedBeans = state.totalBeans + 1;
+          const order = { ...state.order };
+          const totalPrice = state.totalPrice + bean.price;
+          const totalBeans = state.totalBeans + 1;
 
-          if (updatedOrder[bean.name]) {
-            updatedOrder[bean.name].quantity++;
+          if (order[bean.name]) {
+            order[bean.name].quantity++;
           } else {
-            updatedOrder[bean.name] = { ...bean, quantity: 1 };
+            order[bean.name] = { ...bean, quantity: 1 };
           }
 
           return {
             ...state,
-            totalPrice: updatedPrice,
-            totalBeans: updatedBeans,
-            order: updatedOrder,
+            totalPrice,
+            totalBeans,
+            order,
           };
         }),
       removeFromCart: (name) =>
         set((state) => {
-          const updatedOrder = { ...state.order };
-          const itemToRemove = updatedOrder[name];
+          const order = { ...state.order };
+          const itemToRemove = order[name];
 
           if (itemToRemove) {
-            const updatedPrice = state.totalPrice - itemToRemove.price;
-            const updatedBeans = state.totalBeans - 1;
+            const totalPrice = state.totalPrice - itemToRemove.price;
+            const totalBeans = state.totalBeans - 1;
 
             if (itemToRemove.quantity > 1) {
               itemToRemove.quantity--;
             } else {
-              delete updatedOrder[name];
+              delete order[name];
             }
 
             return {
               ...state,
-              totalPrice: updatedPrice,
-              totalBeans: updatedBeans,
-              order: updatedOrder,
+              totalPrice,
+              totalBeans,
+              order,
             };
           }
 
