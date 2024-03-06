@@ -12,7 +12,7 @@ interface OrderModel {
 }
 
 const StatusView = () => {
-  const { lastOrder } = useBeanStore();
+  const { lastOrder, setLastOrder } = useBeanStore();
   const {
     user: { token },
   } = useUserStore();
@@ -22,15 +22,12 @@ const StatusView = () => {
   useEffect(() => {
     const getCurrOrder = async () => {
       const userToken: string | undefined = token ? token : undefined;
-
       const response = await getOrderEta(lastOrder, userToken);
+
       if (response.eta) {
         setOrder({ eta: response.eta, orderNr: lastOrder });
-      } else {
-        const responseWithoutToken = await getOrderEta(lastOrder);
-        if (responseWithoutToken.eta) {
-          setOrder({ eta: responseWithoutToken.eta, orderNr: lastOrder });
-        }
+      } else if (userToken && lastOrder) {
+        setLastOrder('');
       }
       setIsLoading(false);
     };
